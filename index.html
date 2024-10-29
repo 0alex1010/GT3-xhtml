@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gittube3</title>
+<link rel="icon" href="https://github.com/0alex1010/Gittube3/blob/main/youtube-play-black-logo-80DD0878BE-seeklogo.com.png?raw=true" type="image/png" />
+<style type="text/css">
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+#player-container {
+  width: 854px;
+  height: 480px;
+}
+
+#input-container {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#video-input {
+  padding: 10px;
+  border: 1px solid #505050;
+  border-radius: 5px;
+  width: 300px;
+  background-color: #303030;
+  color: #fff;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #FF0000;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#version {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  color: #777;
+}
+</style>
+<script type="text/javascript">
+//<![CDATA[
+  function loadVideo() {
+    const videoId = document.getElementById('video-input').value;
+    const iframe = document.getElementById('player');
+
+    if (videoId.trim() === "") {
+      alert("Please enter a video ID");
+      return;
+    }
+
+    iframe.src = "https://www.youtube.com/embed/" + videoId;
+  }
+//]]>
+</script>
+</head>
+<body>
+<div id="player-container">
+  <iframe id="player" width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+</div>
+
+<div id="input-container">
+  <input type="text" id="video-input" />
+  <button type="button" onclick="loadVideo()">Load Video</button>
+</div>
+
+<div id="version">Gittube 0.3</div>
+
+</body>
+</html>
